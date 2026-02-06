@@ -1,0 +1,30 @@
+import os
+from PIL import Image
+
+def convert_eps_to_png(input_folder, output_folder):
+    # Make sure output folder exists
+    os.makedirs(output_folder, exist_ok=True)
+
+    # Loop through all files in input folder
+    for filename in os.listdir(input_folder):
+        if filename.lower().endswith(".eps"):
+            input_path = os.path.join(input_folder, filename)
+            output_filename = os.path.splitext(filename)[0] + ".png"
+            output_path = os.path.join(output_folder, output_filename)
+
+            try:
+                # Open EPS file and convert to RGBA (keeps transparency)
+                with Image.open(input_path) as img:
+                    img = img.convert("RGBA")
+                    img.save(output_path, "PNG")
+
+                print(f"Converted: {input_path} → {output_path}")
+
+            except Exception as e:
+                print(f"Failed to convert {input_path}: {e}")
+
+if __name__ == "__main__":
+    input_folder = r"E:\Adobe stock ai\adobe stock files\1ideas\All in one\1\digital5"
+    output_folder = r"E:\Adobe stock ai\adobe stock files\1ideas\All in one\1\digital5"
+
+    convert_eps_to_png(input_folder, output_folder)
