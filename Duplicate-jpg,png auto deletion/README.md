@@ -45,3 +45,5 @@ Deleted duplicate: E:\exports\icon_12_copy.png
 
 Done! Deleted 27 duplicate image files.
 ⚠ Deleted files are permanently removed (not sent to recycle bin).
+
+Just paste it in txt file and save it as py and use it.
